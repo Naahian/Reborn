@@ -1,0 +1,419 @@
+[gd_scene load_steps=17 format=3 uid="uid://wvc1pqvifplx"]
+
+[ext_resource type="Script" uid="uid://qf02iaydsy7q" path="res://scripts/ui.gd" id="1_0dwhk"]
+[ext_resource type="Texture2D" uid="uid://du5b3xthb6ue0" path="res://assets/ui/ui.png" id="1_f5cxw"]
+[ext_resource type="PackedScene" uid="uid://d22x2jrhu3xob" path="res://scenes/ui/inventory_slot.tscn" id="2_aac20"]
+[ext_resource type="PackedScene" uid="uid://c5u6f231bex8q" path="res://scenes/ui/chatbox.tscn" id="2_pfayw"]
+[ext_resource type="PackedScene" uid="uid://dvrfndhnjos5j" path="res://scenes/ui/shop_slot.tscn" id="3_aac20"]
+[ext_resource type="AudioStream" uid="uid://dmq2ci238nhvp" path="res://assets/music/051_use_item_01.wav" id="3_y220t"]
+[ext_resource type="AudioStream" uid="uid://457v60gq887h" path="res://assets/music/079_Buy_sell_01.wav" id="4_4kltc"]
+[ext_resource type="Texture2D" uid="uid://bf6i65ig0vqsq" path="res://assets/ui/close_btn.png" id="4_g5kmx"]
+[ext_resource type="Texture2D" uid="uid://dxeiu7ke11h5b" path="res://assets/ui/controls.png" id="6_uegxj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_avfhx"]
+font_size = 64
+font_color = Color(0.96862745, 0.8666667, 0.6117647, 1)
+outline_size = 1
+shadow_size = 8
+shadow_color = Color(0.011764706, 0.007843138, 0.003921569, 0.78431374)
+shadow_offset = Vector2(1, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g5kmx"]
+font_size = 32
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.78431374)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g5kmx"]
+bg_color = Color(0.8235294, 0.30980393, 0.03529412, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 4
+border_color = Color(0.43137255, 0.18431373, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0dwhk"]
+bg_color = Color(0.8235294, 0.30980393, 0.03529412, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.43529412, 0.18431373, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfayw"]
+bg_color = Color(0.8235294, 0.30980393, 0.03529412, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 4
+border_color = Color(0.49803922, 0.21176471, 0.015686275, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g5kmx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0dwhk"]
+font_size = 22
+font_color = Color(0, 0, 0, 1)
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_0dwhk")
+
+[node name="use_item_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_y220t")
+
+[node name="buy_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4kltc")
+
+[node name="bg" type="ColorRect" parent="."]
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 1148.0
+offset_bottom = 650.0
+color = Color(0.09803922, 0.039215688, 0.019607844, 0.78431374)
+
+[node name="Chatbox" parent="." instance=ExtResource("2_pfayw")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -220.5
+offset_top = -255.0
+offset_right = 220.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Menu" type="NinePatchRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -214.0
+offset_top = -179.0
+offset_right = 199.0
+offset_bottom = 221.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_f5cxw")
+patch_margin_left = 27
+patch_margin_top = 31
+patch_margin_right = 28
+patch_margin_bottom = 26
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="Label" type="Label" parent="Menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -115.0
+offset_top = -72.0
+offset_right = 115.0
+offset_bottom = -7.0
+grow_horizontal = 2
+text = "R E B O R N"
+label_settings = SubResource("LabelSettings_avfhx")
+
+[node name="About" type="Label" parent="Menu"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -184.5
+offset_right = -101.0
+offset_bottom = -119.5
+grow_vertical = 2
+text = "About"
+label_settings = SubResource("LabelSettings_avfhx")
+
+[node name="detail" type="Label" parent="Menu/About"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -145.5
+offset_top = 14.0
+offset_right = 132.5
+offset_bottom = 299.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Made by Abdullah Al Nahian. This RPG game is a hobby project.
+
+Art: craftpix.net
+Music:  Ebunny from Pixabay.com"
+label_settings = SubResource("LabelSettings_g5kmx")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Controls" type="Label" parent="Menu"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 49.0
+offset_top = -176.5
+offset_right = 312.0
+offset_bottom = -111.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Pc Controls"
+label_settings = SubResource("LabelSettings_avfhx")
+
+[node name="TextureRect" type="TextureRect" parent="Menu/Controls"]
+layout_mode = 0
+offset_left = -27.0
+offset_top = 64.5
+offset_right = 485.0
+offset_bottom = 576.5
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_uegxj")
+
+[node name="buttons" type="VBoxContainer" parent="Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.5
+offset_top = -130.0
+offset_right = 112.5
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="start" type="PanelContainer" parent="Menu/buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="btn" type="Button" parent="Menu/buttons/start"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_g5kmx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0dwhk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pfayw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g5kmx")
+text = "Play"
+
+[node name="inventory" type="PanelContainer" parent="Menu/buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="btn" type="Button" parent="Menu/buttons/inventory"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_g5kmx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0dwhk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pfayw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g5kmx")
+text = "Inventory"
+
+[node name="quit" type="PanelContainer" parent="Menu/buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="btn" type="Button" parent="Menu/buttons/quit"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_g5kmx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0dwhk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pfayw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g5kmx")
+text = "Quit"
+
+[node name="Inventory" type="NinePatchRect" parent="."]
+visible = false
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 48.0
+offset_top = -144.5
+offset_right = 333.0
+offset_bottom = 144.5
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_f5cxw")
+patch_margin_left = 27
+patch_margin_top = 31
+patch_margin_right = 28
+patch_margin_bottom = 26
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="items" type="GridContainer" parent="Inventory"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.507
+anchor_top = 0.24400002
+anchor_right = 0.507
+anchor_bottom = 0.24400002
+offset_left = -87.09999
+offset_top = 4.079994
+offset_right = 86.90001
+offset_bottom = 166.07999
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 6
+columns = 3
+
+[node name="slot" parent="Inventory/items" instance=ExtResource("2_aac20")]
+layout_mode = 2
+
+[node name="slot2" parent="Inventory/items" instance=ExtResource("2_aac20")]
+layout_mode = 2
+
+[node name="slot3" parent="Inventory/items" instance=ExtResource("2_aac20")]
+layout_mode = 2
+
+[node name="slot4" parent="Inventory/items" instance=ExtResource("2_aac20")]
+layout_mode = 2
+
+[node name="slot5" parent="Inventory/items" instance=ExtResource("2_aac20")]
+layout_mode = 2
+
+[node name="slot6" parent="Inventory/items" instance=ExtResource("2_aac20")]
+layout_mode = 2
+
+[node name="slot7" parent="Inventory/items" instance=ExtResource("2_aac20")]
+layout_mode = 2
+
+[node name="slot8" parent="Inventory/items" instance=ExtResource("2_aac20")]
+layout_mode = 2
+
+[node name="slot9" parent="Inventory/items" instance=ExtResource("2_aac20")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Inventory"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -53.5
+offset_top = 36.0
+offset_right = 53.5
+offset_bottom = 60.0
+grow_horizontal = 2
+text = "Inventory"
+label_settings = SubResource("LabelSettings_0dwhk")
+
+[node name="close_btn" type="Button" parent="Inventory"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -27.0
+offset_top = 3.9999998
+offset_right = 45.0
+offset_bottom = 76.0
+grow_horizontal = 0
+scale = Vector2(0.385, 0.385)
+icon = ExtResource("4_g5kmx")
+
+[node name="Shop" type="NinePatchRect" parent="."]
+visible = false
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -469.0
+offset_top = -181.5
+offset_right = -184.0
+offset_bottom = 85.5
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("1_f5cxw")
+patch_margin_left = 27
+patch_margin_top = 31
+patch_margin_right = 28
+patch_margin_bottom = 26
+
+[node name="items" type="GridContainer" parent="Shop"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.507
+anchor_top = 0.24400002
+anchor_right = 0.507
+anchor_bottom = 0.24400002
+offset_left = -87.09999
+offset_top = 4.079994
+offset_right = 86.90001
+offset_bottom = 170.85199
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 6
+columns = 3
+
+[node name="shop_slot" parent="Shop/items" instance=ExtResource("3_aac20")]
+layout_mode = 2
+
+[node name="shop_slot2" parent="Shop/items" instance=ExtResource("3_aac20")]
+layout_mode = 2
+
+[node name="shop_slot3" parent="Shop/items" instance=ExtResource("3_aac20")]
+layout_mode = 2
+
+[node name="shop_slot4" parent="Shop/items" instance=ExtResource("3_aac20")]
+layout_mode = 2
+
+[node name="shop_slot5" parent="Shop/items" instance=ExtResource("3_aac20")]
+layout_mode = 2
+
+[node name="shop_slot6" parent="Shop/items" instance=ExtResource("3_aac20")]
+layout_mode = 2
+
+[node name="close_btn" type="Button" parent="Shop"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -27.0
+offset_top = 3.9999998
+offset_right = 45.0
+offset_bottom = 76.0
+grow_horizontal = 0
+scale = Vector2(0.385, 0.385)
+icon = ExtResource("4_g5kmx")
+
+[node name="Label" type="Label" parent="Shop"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -26.0
+offset_top = 33.0
+offset_right = 26.0
+offset_bottom = 57.0
+grow_horizontal = 2
+text = "Shop"
+label_settings = SubResource("LabelSettings_0dwhk")

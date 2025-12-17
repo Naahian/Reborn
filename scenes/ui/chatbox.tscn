@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5u6f231bex8q"]
+
+[ext_resource type="Texture2D" uid="uid://du5b3xthb6ue0" path="res://assets/ui/ui.png" id="1_02cjf"]
+[ext_resource type="Script" uid="uid://irhux7quan2j" path="res://scripts/chatbox.gd" id="2_02cjf"]
+[ext_resource type="AudioStream" uid="uid://daxwv6umaanmi" path="res://assets/music/tap.mp3" id="3_3fyw8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wesi2"]
+font_size = 32
+font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[node name="Chatbox" type="NinePatchRect"]
+offset_right = 416.0
+offset_bottom = 166.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = ExtResource("1_02cjf")
+patch_margin_left = 29
+patch_margin_top = 32
+patch_margin_right = 30
+patch_margin_bottom = 29
+script = ExtResource("2_02cjf")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 385.5
+offset_bottom = 140.5
+text = "nothing..."
+label_settings = SubResource("LabelSettings_wesi2")
+autowrap_mode = 2
+
+[node name="Tap" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_3fyw8")

@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://dvrfndhnjos5j"]
+
+[ext_resource type="Texture2D" uid="uid://bc2oah3ifqyy4" path="res://assets/items/item041.png" id="1_6tlrr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1buui"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1buui"]
+font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c24ra"]
+bg_color = Color(0.003921569, 0.003921569, 0.003921569, 0.078431375)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8, 0.8, 0.8, 0.39215687)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khion"]
+bg_color = Color(0.6, 0.6, 0.6, 0.15686275)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y7ywj"]
+bg_color = Color(0.003921569, 0.003921569, 0.003921569, 0.078431375)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c24ra"]
+
+[node name="shop_slot" type="PanelContainer"]
+custom_minimum_size = Vector2(50, 60)
+offset_right = 50.0
+offset_bottom = 69.333336
+scale = Vector2(3, 3)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1buui")
+
+[node name="content" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="icon" type="TextureRect" parent="content"]
+layout_mode = 2
+expand_mode = 4
+stretch_mode = 4
+
+[node name="price_box" type="HBoxContainer" parent="content"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="TextureRect" type="TextureRect" parent="content/price_box"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_6tlrr")
+
+[node name="Label" type="Label" parent="content/price_box"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_1buui")
+
+[node name="btn" type="Button" parent="."]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_c24ra")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_khion")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y7ywj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c24ra")

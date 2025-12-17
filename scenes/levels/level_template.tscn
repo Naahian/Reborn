@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=4 uid="uid://b337hxsfnqhfp"]
+
+[ext_resource type="Texture2D" uid="uid://bba4xdi1ehf7g" path="res://assets/platform.png" id="1_eyte8"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7hipx"]
+texture = ExtResource("1_eyte8")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2, -4, 64, -64, 64, 64, -64, 64)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 4, 1, 64, 64, -64, 64, -64, 64)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -64, 64, -64, 64, 64, -24, 64, -23, 64)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 14, -64, 18, 64, -64, 64, -64, 64)
+
+[sub_resource type="TileSet" id="TileSet_gr3xe"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_7hipx")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ds0u5"]
+size = Vector2(100, 300)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4s5u3"]
+size = Vector2(100, 300)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eokde"]
+size = Vector2(100, 300)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ulyey"]
+size = Vector2(100, 300)
+
+[node name="level_template" type="Node2D"]
+
+[node name="platform" type="TileMapLayer" parent="."]
+position = Vector2(0, 136)
+tile_map_data = PackedByteArray("AAAAAAMAAQAAAAEAAAABAAMAAQAAAAIAAAACAAMAAQAAAAIAAAADAAMAAQAAAAIAAAAEAAMAAQAAAAIAAAAFAAMAAQAAAAIAAAAGAAMAAQAAAAIAAAAHAAMAAQAAAAIAAAAIAAMAAQAAAAIAAAAJAAMAAQAAAAIAAAAKAAMAAQAAAAIAAAALAAMAAQAAAAIAAAAMAAMAAQAAAAIAAAANAAMAAQAAAAIAAAAOAAMAAQAAAAIAAAAPAAMAAQAAAAIAAAAQAAMAAQAEAAAAAAARAAMAAQAAAAIAAAASAAMAAQAAAAIAAAATAAMAAQAAAAIAAAAUAAMAAQAAAAIAAAAVAAMAAQAAAAIAAAAeAAMAAQAAAAIAAAAdAAMAAQAAAAIAAAAcAAMAAQAAAAIAAAAbAAMAAQAAAAIAAAAaAAMAAQAAAAIAAAAZAAMAAQAAAAIAAAAYAAMAAQAAAAIAAAAXAAMAAQAAAAIAAAAWAAMAAQAAAAIAAAAAAAIAAQAAAAEAAAABAAIAAQAAAAEAAAACAAIAAQAAAAEAAAADAAIAAQAAAAEAAAAEAAIAAQACAAIAAAAAAAEAAQAAAAIAAAABAAEAAQAAAAIAAAACAAEAAQAAAAIAAAAEAAEAAQACAAEAAAADAAEAAQAAAAIAAAABAAAAAQACAAIAAAAAAAAAAQAAAAEAAAABAP//AQACAAEAAAAAAP//AQAAAAIAAAD/////AQAAAAIAAAD//wAAAQAAAAEAAAD//wEAAQAAAAEAAAD//wIAAQAAAAEAAAD//wMAAQAAAAEAAAARAAIAAQAEAAAAAAASAAIAAQACAAIAAAAVAAAAAQADAAAAAAAWAAAAAQABAAAAAAAXAAAAAQACAAEAAAAfAAMAAQAAAAIAAAAgAAMAAQAAAAIAAAD+/wMAAQAAAAEAAAAQAAIAAQAAAAAAAAARAAEAAQAAAAAAAAASAAEAAQACAAEAAAD+////AQAAAAEAAAD+/wAAAQAAAAEAAAD+/wEAAQAAAAEAAAD9/wEAAQAAAAEAAAD9/wIAAQAAAAEAAAD9/wMAAQAAAAEAAAD+/wIAAQAAAAEAAAD9/wAAAQAAAAEAAAD9////AQAAAAEAAAA=")
+tile_set = SubResource("TileSet_gr3xe")
+
+[node name="checkponts" type="Node2D" parent="."]
+position = Vector2(0, 136)
+
+[node name="start" type="Area2D" parent="checkponts"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="checkponts/start"]
+position = Vector2(498, -21)
+shape = SubResource("RectangleShape2D_ds0u5")
+
+[node name="end" type="Area2D" parent="checkponts"]
+position = Vector2(3199, 257)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="checkponts/end"]
+position = Vector2(498, -21)
+shape = SubResource("RectangleShape2D_4s5u3")
+
+[node name="boundaries" type="Node2D" parent="."]
+position = Vector2(0, 136)
+
+[node name="start" type="StaticBody2D" parent="boundaries"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundaries/start"]
+shape = SubResource("RectangleShape2D_eokde")
+
+[node name="end" type="StaticBody2D" parent="boundaries"]
+position = Vector2(0, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundaries/end"]
+position = Vector2(3749, 232)
+shape = SubResource("RectangleShape2D_ulyey")
